@@ -13,7 +13,60 @@ font-family:'Cairo',sans-serif;
 --text:#1f2937;
 --shadow:0 10px 30px rgba(0,0,0,.08);
 }
+.badge{
+display:inline-block;
+background:#ffffff22;
+padding:8px 18px;
+border-radius:50px;
+font-size:15px;
+margin-bottom:20px;
+backdrop-filter:blur(10px);
+}
 
+.hero-overlay{
+width:100%;
+min-height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+background:linear-gradient(rgba(7,110,102,.75),rgba(7,110,102,.75));
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.primary-btn,
+.secondary-btn{
+padding:16px 32px;
+border-radius:14px;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.primary-btn{
+background:#D4AF37;
+color:#000;
+border:none;
+}
+
+.secondary-btn{
+background:transparent;
+border:2px solid #fff;
+color:#fff;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+transform:translateY(-4px);
+}
 body{
 background:var(--bg);
 color:var(--text);
