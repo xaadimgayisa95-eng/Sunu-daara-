@@ -460,3 +460,139 @@ font-size:17px;
 }
 
 }
+/* ===========================
+   Dashboard
+=========================== */
+
+.dashboard-hero{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0B7A6D,#13A88D);
+color:#fff;
+}
+
+.dashboard-hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.dashboard-hero p{
+font-size:18px;
+opacity:.95;
+}
+
+.dashboard-grid{
+width:min(1200px,95%);
+margin:50px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.dashboard-card{
+background:#fff;
+padding:30px;
+border-radius:20px;
+text-align:center;
+text-decoration:none;
+color:#222;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.dashboard-card:hover{
+transform:translateY(-8px);
+}
+
+.dashboard-card h2{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.dashboard-card h3{
+color:#0B7A6D;
+margin-bottom:12px;
+}
+
+.dashboard-card p{
+line-height:1.8;
+color:#555;
+}
+/* ===========================
+   Publish Page
+=========================== */
+
+.publish-hero{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(135deg,#0B7A6D,#13A88D);
+color:#fff;
+}
+
+.publish-hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.publish-hero p{
+font-size:18px;
+max-width:700px;
+margin:auto;
+}
+
+.publish-form{
+width:min(850px,95%);
+margin:60px auto;
+background:#fff;
+padding:35px;
+border-radius:24px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.publish-form h2{
+text-align:center;
+margin-bottom:30px;
+color:#0B7A6D;
+}
+
+.publish-form form{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.publish-form label{
+font-weight:bold;
+color:#333;
+}
+
+.publish-form input,
+.publish-form select,
+.publish-form textarea{
+padding:16px;
+border:1px solid #ddd;
+border-radius:12px;
+font-size:16px;
+font-family:'Cairo',sans-serif;
+}
+
+.publish-form textarea{
+resize:vertical;
+min-height:160px;
+}
+
+.publish-form button{
+padding:16px;
+background:#0B7A6D;
+color:#fff;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.publish-form button:hover{
+background:#086458;
+}
