@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="theme-color" content="#0B6B4A">
+<link rel="icon" href="logo.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سونو دارا — نموذج تجريبي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Almarai:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;500;700&family=Readex+Pro:wght@400;500;700&family=Amiri:wght@400;700&family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body><div class="app">
+
+<div class="sc" id="login"><div class="hd" style="flex-direction:column;align-items:flex-start;padding:44px 22px 36px"><h1 style="font-size:32px">سونو دارا</h1><p style="font-size:14px">Sunu Daara · معًا لتعليم القرآن في السنغال</p></div><div class="bd"><span class="lb" style="margin-top:0">رقم الهاتف</span><input id="lp" inputmode="tel" placeholder="77 000 00 00"><button class="btn" onclick="lg()">دخول</button><p style="font-size:12px;color:var(--mut);margin-top:14px">نسخة تجريبية: يكفي أي رقم بطول صحيح. في النسخة الحقيقية يصلك رمز تأكيد برسالة نصية.</p></div></div>
+<div class="sc" id="add"><div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div><h1>تلميذ جديد</h1><p>بياناته خاصة بمدرستك فقط</p></div></div><div class="bd"><div style="display:flex;align-items:center;gap:14px"><div class="av" id="phv" style="width:68px;height:68px;font-size:24px;overflow:hidden">+</div><label class="c" style="cursor:pointer">إضافة صورة التلميذ<input type="file" accept="image/*" style="display:none" onchange="pv(this)"></label></div><span class="lb">اسم التلميذ</span><input id="n1" placeholder="الاسم الكامل"><span class="lb">سنة الميلاد</span><input id="n2" type="number" inputmode="numeric" placeholder="مثال: 2015"><span class="lb">اسم ولي الأمر</span><input id="n3"><span class="lb">هاتف ولي الأمر</span><input id="n4" inputmode="tel"><span class="lb">الحلقة</span><select id="n5"></select><span class="lb">المستوى الحالي</span><select id="n6"><option>مبتدئ</option><option>جزء عمّ</option><option>جزء تبارك</option><option>جزء قد سمع</option><option>مستوى متقدم</option></select><button class="btn" onclick="ad()">حفظ التلميذ</button></div></div>
+<div class="sc" id="set"><div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div><h1>إعدادات المدرسة</h1><p>تحدد شكل التسجيل اليومي</p></div></div><div class="bd"><span class="lb" style="margin-top:0">اسم المدرسة</span><input id="s0" value="مدرسة النور القرآنية"><span class="lb">أسماء الجلسات اليومية</span><input id="s1"><div style="height:8px"></div><input id="s2"><div style="height:8px"></div><input id="s3"><span class="lb">وحدة الدرس الجديد</span><div class="ch" id="s4"><button class="c s">ثمن</button><button class="c">ربع</button><button class="c">آيات</button><button class="c">سطور</button></div><span class="lb">وحدة المراجعة الافتراضية</span><div class="ch" id="s5"><button class="c s">جزء</button><button class="c">حزب</button><button class="c">ربع حزب</button><button class="c">ثمن</button></div><button class="btn" onclick="sv()">حفظ الإعدادات</button></div></div>
+<div class="sc" id="pf"><div class="tb2"><div class="lg2"><img src="logo.jpg" alt="شعار سونو دارا"></div><div class="nm2"><b>سونو دارا</b><small>Sunu Daara</small></div><button class="bl" onclick="go('nt')" aria-label="الإشعارات"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg><i></i></button></div><div class="sr2"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></svg><input id="hq" placeholder="ابحث عن دارة أو معلم أو مدينة"><button onclick="dsq()">بحث</button></div><div id="pfb"></div></div>
+<div class="sc" id="dis"><div class="hd"><div><h1>اكتشف الدارات</h1><p>دارات قرآنية في أنحاء السنغال</p></div></div><div class="bd"><input id="dq" placeholder="ابحث عن دارة أو مدينة" oninput="DQ=this.value;rl()"><div class="ch" id="dcs" style="margin:12px 0"></div><div id="dl"></div></div></div>
+<div class="sc" id="prof"><div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div><h1 id="pn"></h1><p id="pc2"></p></div></div><div class="bd" id="pb"></div></div>
+<div class="sc" id="nt"><div class="hd"><div><h1>الإشعارات</h1><p>آخر ما يخصّك</p></div></div><div class="bd" id="ntl"></div></div>
+<div class="sc on spl" id="spl" onclick="go('login',false)"><img src="splash.jpg" alt="سونو دارا"></div>
+<div class="sc" id="sp"><div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div><h1>مساحاتي</h1><p>اختر الدارة التي تعمل فيها</p></div></div><div class="bd"><div id="spc"></div><button class="btn o" onclick="toast('إنشاء دارة جديدة: الشاشة القادمة')">+ إنشاء دارة جديدة</button></div></div>
+<div class="sc" id="adv"><div class="hd"><button class="bk" onclick="avb()" aria-label="رجوع">›</button><div><h1>إنشاء إعلان</h1><p id="avs"></p></div></div><div class="bd" id="avb"></div></div>
+<div class="sc" id="rep"><div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div><h1>التقارير</h1><p>ملخص الدارة والحلقات</p></div></div><div class="bd"><div id="rpb"></div></div></div>
+<div class="sc" id="sr"><div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div><h1>تقرير التلميذ</h1><p id="srn"></p></div></div><div class="bd" id="srb"></div></div>
+<div class="sc" id="hub"><div class="hd"><div><h1>المنصة القرآنية</h1><p id="hw"></p></div></div><div class="bd"><span class="lb" style="margin-top:0">مدرستي</span><div class="li" onclick="go('home')"><div class="av">م</div><div class="fl"><b id="hs"></b><small id="hd2"></small></div><span class="pl">دخول</span></div><span class="lb">الفرص</span><div class="li" onclick="oq=0;go('opp')"><div class="av">ع</div><div class="fl"><b>معلمون يبحثون عن مدرسة</b><small>ادعُ معلمًا إلى مدرستك</small></div><span class="pl w" id="hc1"></span></div><div class="li" onclick="oq=1;go('opp')"><div class="av">د</div><div class="fl"><b>مدارس تبحث عن معلم</b><small>اطّلع على الطلبات المنشورة</small></div><span class="pl w" id="hc2"></span></div><p style="font-size:12px;color:var(--mut);margin-top:16px">مدرستك قسم واحد من المنصة. ملفات التلاميذ خاصة بها ولا تظهر في الفرص.</p></div></div>
+<div class="sc" id="opp"><div class="hd"><div><h1>الوظائف والخدمات</h1><p>فرص عمل وخدمات خاصة بالدارات القرآنية</p></div></div><div class="bd"><div class="ch" id="ot"></div><div id="ol" style="margin-top:14px"></div><button class="btn" onclick="ad0()">+ إنشاء إعلان</button></div></div>
+<div class="sc" id="me"><div class="hd"><div><h1>حسابي</h1><p>اعرض نفسك للمدارس أو انشر حاجتك</p></div></div><div class="bd"><div id="mf1"><h2 style="margin-top:0">انشر طلب معلم</h2><span class="lb">المنطقة</span><input id="q1" placeholder="مثال: ثيس"><span class="lb">ما تحتاجه</span><input id="q2" placeholder="معلم حفظ لثلاثين تلميذًا"><button class="btn" onclick="pq()">نشر الطلب</button></div><div id="mf2" style="display:none"><h2 style="margin-top:0">اعرض نفسي كمعلم</h2><span class="lb">الاسم</span><input id="t1"><span class="lb">سنوات الخبرة</span><input id="t2" type="number" inputmode="numeric"><span class="lb">المنطقة</span><input id="t3"><p style="font-size:12px;color:var(--mut)">رقم هاتفك لا يظهر للمدارس إلا بعد قبولك دعوتها.</p><button class="btn" onclick="pt()">نشر ملفي</button></div></div></div>
+<div class="sc" id="home">
+<div class="hd"><div><h1 id="sn">مدرسة النور القرآنية</h1><p>نموذج تجريبي ببيانات وهمية</p></div></div>
+<div class="bd">
+<span class="lb" style="margin-top:0">جرّب الخطوط</span><div class="ch" id="fc" style="margin-bottom:14px"></div><div class="g2"><div class="mc"><small>التلاميذ</small><b id="m1"></b></div><div class="mc"><small>جلسات اليوم المسجلة</small><b id="m2"></b></div><div class="mc"><small>المعلمون</small><b id="m3"></b></div><div class="mc"><small>جلسات متبقية</small><b id="m4" style="color:var(--gold)"></b></div></div>
+<h2>الحلقات اليوم</h2><div id="hl"></div>
+<button class="btn" onclick="go('students')">جدول الحلقات والتلاميذ</button><button class="btn o" onclick="go('rep')">التقارير</button><div id="gs"><button class="btn o" onclick="os()">إعدادات المدرسة</button></div><button class="btn o" style="border-color:var(--bd);color:var(--mut)" onclick="lo()">تسجيل الخروج</button>
+</div></div>
+
+<div class="sc" id="students"><div class="hd"><div><h1>التلاميذ</h1><p>جدول الحلقات والجلسات اليومية</p></div></div><div class="bd"><div style="display:flex;gap:8px"><input id="q" placeholder="ابحث باسم التلميذ" oninput="rs()"><button class="btn" style="margin:0;width:auto;padding:0 16px;white-space:nowrap" onclick="oa()">+ تلميذ</button></div><div id="sl" style="margin-top:12px"></div></div></div>
+<div class="sc" id="file">
+<div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div id="fph"></div><div><h1 id="fn"></h1><p id="ft"></p></div></div>
+<div class="bd"><div class="mc"><small>تقدّم الحفظ في المستوى الحالي</small><b id="fp"></b><div class="bar" style="margin-top:8px"><i id="fb"></i></div></div>
+<h2>المستوى (الحزب)</h2><div class="mc"><b id="lvt" style="font-size:18px"></b><div class="g2" style="margin-top:10px"><select id="lh"></select><select id="lq"></select></div><button class="btn o" style="margin-top:10px" onclick="ul2()">تحديث المستوى</button></div><h2>البيانات الشخصية</h2><div class="mc" id="fpi"></div><button class="btn o" onclick="ex()">نسخ بطاقة التلميذ</button><button class="btn" onclick="openRec()">تسجيل درس اليوم</button>
+<h2>آخر الدروس</h2><div id="fh"></div></div></div>
+
+<div class="sc" id="rec">
+<div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div><h1 id="rn"></h1><p id="rt"></p></div></div>
+<div class="bd">
+<span class="lb" style="margin-top:0">جلسة اليوم</span><div class="sg" id="sg"></div><p id="sd" style="font-size:13px;color:var(--mut);margin:6px 0 0"></p><span class="lb">الحضور</span><div class="ch" id="g1"><button class="c s">حاضر</button><button class="c">غائب</button><button class="c">بعذر</button></div>
+
+<div id="nw"><div class="ch" id="gm" style="margin-top:14px"><button class="c s" onclick="rm(0)">بالآيات</button><button class="c" onclick="rm(1)">بالسطور</button></div><div id="ay"><span class="lb">السورة</span><select id="su" onchange="sc()"><option>النبأ</option><option>النازعات</option><option>عبس</option><option>التكوير</option><option>الانفطار</option><option>المطففين</option><option>الانشقاق</option><option>البروج</option></select>
+<div class="g2"><div><span class="lb">من آية</span><input id="a" type="number" inputmode="numeric" min="1" value="1"></div>
+<div><span class="lb">إلى آية</span><input id="z" type="number" inputmode="numeric" min="1" value="10"></div></div><p id="sh" style="font-size:12px;color:var(--mut);margin:6px 0 0"></p></div><div id="ln" style="display:none"><div class="g2"><div><span class="lb">رقم الصفحة</span><input id="pg" type="number" inputmode="numeric" placeholder="1 – 604"></div><div><span class="lb">السطور من / إلى</span><div style="display:flex;gap:6px"><input id="l1" type="number" inputmode="numeric" placeholder="من"><input id="l2" type="number" inputmode="numeric" placeholder="إلى"></div></div></div></div></div><div id="rv" style="display:none"><span class="lb">وحدة المراجعة</span><div class="ch" id="gu"><button class="c s" onclick="ru('جزء')">جزء</button><button class="c" onclick="ru('حزب')">حزب</button><button class="c" onclick="ru('ربع')">ربع حزب</button></div><div class="g2"><div><span class="lb">من</span><select id="r1"></select></div><div><span class="lb">إلى</span><select id="r2"></select></div></div></div>
+<span class="lb">التقييم</span><div class="ch" id="g3"><button class="c">ممتاز</button><button class="c s">جيد</button><button class="c">يحتاج مراجعة</button></div>
+<span class="lb">ملاحظة للمدير (اختياري)</span><input placeholder="اكتب ملاحظتك">
+<button class="btn" onclick="save()">حفظ والانتقال للتلميذ التالي</button></div></div>
+
+<div class="sc" id="teachers">
+<div class="hd"><div><h1>المعلمون</h1><p>الصلاحيات تُمنح من المدير فقط</p></div></div>
+<div class="bd"><div id="tl"></div>
+<button class="btn" onclick="document.getElementById('inv').style.display='block';this.style.display='none'">دعوة معلم</button>
+<div id="inv" style="display:none"><h2>دعوة معلم جديد</h2>
+<input id="in1" placeholder="اسم المعلم"><div style="height:8px"></div><input id="in2" inputmode="tel" placeholder="رقم الهاتف">
+<span class="lb">الصلاحيات</span><div class="ch" id="pm"><button class="c s" onclick="this.classList.toggle('s')">تسجيل الدروس</button><button class="c s" onclick="this.classList.toggle('s')">عرض ملفات حلقته</button><button class="c" onclick="this.classList.toggle('s')">إضافة تلاميذ</button></div>
+<button class="btn" onclick="inv()">إرسال الدعوة</button></div>
+<h2>الدليل العام</h2><div class="li" onclick="toast('دليل المعلمين: المرحلة الثانية')"><div class="av">؟</div><div class="fl"><b>ابحث عن معلم</b><small>يتوفر بعد استقرار المدارس الأولى</small></div><span class="pl w">قريبًا</span></div>
+</div></div>
+
+<div class="sc" id="plans">
+<div class="hd"><div><h1>الاشتراك</h1><p>خطتك الحالية: مجانية</p></div></div>
+<div class="bd"><div class="mc" style="margin-bottom:14px"><small>التلاميذ المسجلون / الحد المسموح</small><b id="pc"></b></div><div id="pl"></div>
+<button class="btn" onclick="toast('الدفع: مرحلة لاحقة')">ترقية الخطة</button></div></div>
+
+</div>
+
+<div class="nv"><div id="nv"></div></div><div class="tt" id="tt"></div>
+
+<script src="app.js"></script></body></html>
