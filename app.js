@@ -105,7 +105,30 @@ function tj(){oq=0;go('opp')}
 function mg(){go('home')}
 function dsc(k){DCY=k;DQ='';go('dis')}
 function dsq(){DQ=$('hq').value;DCY=0;go('dis')}
-function rpf(){var I=function(p){return'<div class="ic"><svg viewBox="0 0 24 24">'+p+'</svg></div>'};$('pfb').innerHTML='<div class="cg"><div class="cc t1" onclick="dsc(0)">'+I('<path d="M4 20V11h16v9M7 11a5 5 0 0 1 10 0"/>')+'<b>الدارات القرآنية</b><small>اكتشف المدارس القرآنية في السنغال</small></div><div class="cc t2" onclick="tj()">'+I('<circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/>')+'<b>المعلمون</b><small>ابحث عن معلمين مؤهلين</small></div><div class="cc t3" onclick="oq=1;go(\'opp\')">'+I('<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6h6v2"/>')+'<b>فرص العمل</b><small>وظائف للمعلمين في الدارات</small></div><div class="cc t4" onclick="mg()">'+I('<path d="M5 20V10M12 20V4M19 20v-7"/>')+'<b>إدارة الدارة</b><small>أدوات إدارة التلاميذ والتقارير اليومية</small></div></div><div class="sh"><b>دارات مميزة</b><span onclick="dsc(0)">عرض الكل</span></div><div class="hs">'+DR.map(function(d,i){return dcard(i)}).join('')+'</div><div class="sh"><b>معلمون مميزون</b><span onclick="tj()">عرض الكل</span></div><div class="hs">'+TM.map(function(t,i){return tcard(i)}).join('')+'</div><p style="font-size:12px;color:var(--mut);margin:18px 14px">ملفات التلاميذ وتقاريرهم خاصة بكل دارة، ولا تظهر في هذه الصفحة.</p>'}
+function rpf(){
+var I=function(p){return'<div class="ic"><svg viewBox="0 0 24 24">'+p+'</svg></div>'};
+$('pfb').innerHTML=
+'<section class="pf-hero">'+
+'<div class="pf-hero-copy"><span class="pf-eyebrow">منصة قرآنية لأهل السنغال</span>'+
+'<h1>كلّ ما تحتاجه<br><em>لتعليم القرآن</em> في مكان واحد</h1>'+
+'<p>اكتشف الدارات القرآنية، وتعرّف على المعلمين، وسهّل التواصل بين المدارس والأسر.</p>'+
+'<div class="pf-hero-actions"><button class="btn" onclick="dsc(0)">اكتشف الدارات</button><button class="btn o" onclick="go(\'login\')">إدارة دارتك</button></div>'+
+'<div class="pf-trust"><span>✓ واجهة عربية سهلة</span><span>✓ مخصّصة للسنغال</span></div></div>'+
+'<div class="pf-hero-art" aria-hidden="true"><div class="pf-art-ring"></div><div class="pf-art-book">۞<small>وَقُل رَّبِّ زِدْنِي عِلْمًا</small></div><span class="pf-float pf-float-one">📖 <b>تعليم القرآن</b></span><span class="pf-float pf-float-two">🌿 <b>مجتمع متعاون</b></span></div>'+
+'</section>'+
+'<section class="pf-quick"><div class="pf-section-head"><div><span class="pf-kicker">ابدأ من هنا</span><h2>كيف يمكننا مساعدتك؟</h2></div><p>اختر الخدمة المناسبة لك</p></div>'+
+'<div class="cg pf-categories">'+
+'<button class="cc t1" onclick="dsc(0)">'+I('<path d="M3 10 12 3l9 7v10H3z"/><path d="M9 20v-6h6v6"/>')+'<b>اكتشف الدارات</b><small>ابحث حسب المدينة والتخصص</small><span class="pf-card-arrow">←</span></button>'+
+'<button class="cc t2" onclick="tj()">'+I('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3-6 8-6s8 2 8 6"/>')+'<b>ابحث عن معلم</b><small>تعرّف على المعلمين وخبراتهم</small><span class="pf-card-arrow">←</span></button>'+
+'<button class="cc t3" onclick="oq=1;go(\'opp\')">'+I('<rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M8 12h8"/>')+'<b>فرص العمل</b><small>فرص وخدمات للدارات والمعلمين</small><span class="pf-card-arrow">←</span></button>'+
+'<button class="cc t4" onclick="mg()">'+I('<path d="M4 20V11h16v9M7 11a5 5 0 0 1 10 0"/><path d="M8 15h8"/>')+'<b>إدارة الدارة</b><small>التلاميذ والحلقات والتقارير</small><span class="pf-card-arrow">←</span></button>'+
+'</div></section>'+
+'<section class="pf-featured"><div class="sh pf-sh"><div><span class="pf-kicker">مجتمعنا القرآني</span><b>دارات مميزة</b><small>تعرّف على الدارات القرآنية في السنغال</small></div><button class="pf-text-link" onclick="dsc(0)">عرض الكل <span>←</span></button></div>'+
+'<div class="hs pf-horizontal-cards">'+DR.map(function(d,i){return dcard(i)}).join('')+'</div></section>'+
+'<section class="pf-featured pf-teachers"><div class="sh pf-sh"><div><span class="pf-kicker">أهل العلم والتعليم</span><b>معلمون مميزون</b><small>اكتشف المعلمين ومجالات تعليمهم</small></div><button class="pf-text-link" onclick="tj()">عرض الكل <span>←</span></button></div>'+
+'<div class="hs pf-horizontal-cards">'+TM.map(function(t,i){return tcard(i)}).join('')+'</div></section>'+
+'<section class="pf-privacy"><span class="pf-privacy-icon">🔒</span><div><b>خصوصية التلاميذ أولويتنا</b><p>ملفات التلاميذ وتقاريرهم لا تظهر للعامة؛ وتبقى داخل الدارة التي تتبع لها.</p></div></section>';
+}
 function rdis(){$('dq').value=DQ;$('dcs').innerHTML=CY.map(function(c,i){return'<button class="c'+(i==DCY?' s':'')+'" onclick="DCY='+i+';rdis()">'+(c||'كل المدن')+'</button>'}).join('');rl()}
 function rl(){var q=DQ.trim();$('dl').innerHTML=DR.map(function(d,i){return(DCY&&d[1]!=CY[DCY])||(q&&(d[0]+d[1]+d[6].join(' ')).indexOf(q)<0)?'':'<div class="li" onclick="op2('+i+')"><div class="av" style="width:58px;height:58px;border-radius:12px">'+DM+'</div><div class="fl"><b>'+d[0]+'</b><small>'+d[1]+' · '+d[2]+' تلميذًا · '+d[3]+' معلمين</small><div style="margin-top:4px">'+d[6].map(function(t){return'<span class="pl" style="margin-left:4px">'+t+'</span>'}).join('')+'</div></div><span style="color:var(--gold);font-weight:700">★ '+d[4]+'</span></div>'}).join('')||'<p style="color:var(--mut)">لا توجد نتائج</p>'}
 function op2(i){rprof(i);go('prof')}
