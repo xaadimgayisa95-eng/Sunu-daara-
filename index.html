@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>سونو دارا — نموذج تجريبي</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Almarai:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Noto+Kufi+Arabic:wght@400;500;700&family=Readex+Pro:wght@400;500;700&family=Amiri:wght@400;700&family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="admin.css"></head>
 <body><div class="app">
 
 <div class="sc" id="login"><div class="hd" style="flex-direction:column;align-items:flex-start;padding:44px 22px 36px"><h1 style="font-size:32px">سونو دارا</h1><p style="font-size:14px">Sunu Daara · معًا لتعليم القرآن في السنغال</p></div><div class="bd"><span class="lb" style="margin-top:0">رقم الهاتف</span><input id="lp" inputmode="tel" placeholder="77 000 00 00"><button class="btn" onclick="lg()">دخول</button><p style="font-size:12px;color:var(--mut);margin-top:14px">نسخة تجريبية: يكفي أي رقم بطول صحيح. في النسخة الحقيقية يصلك رمز تأكيد برسالة نصية.</p></div></div>
@@ -28,9 +28,44 @@
 <div class="bd">
 <span class="lb" style="margin-top:0">جرّب الخطوط</span><div class="ch" id="fc" style="margin-bottom:14px"></div><div class="g2"><div class="mc"><small>التلاميذ</small><b id="m1"></b></div><div class="mc"><small>جلسات اليوم المسجلة</small><b id="m2"></b></div><div class="mc"><small>المعلمون</small><b id="m3"></b></div><div class="mc"><small>جلسات متبقية</small><b id="m4" style="color:var(--gold)"></b></div></div>
 <h2>الحلقات اليوم</h2><div id="hl"></div>
-<button class="btn" onclick="go('students')">جدول الحلقات والتلاميذ</button><button class="btn o" onclick="go('rep')">التقارير</button><div id="gs"><button class="btn o" onclick="os()">إعدادات المدرسة</button></div><button class="btn o" style="border-color:var(--bd);color:var(--mut)" onclick="lo()">تسجيل الخروج</button>
+<button class="btn o" onclick="go('admin')">إدارة الدارة</button><button class="btn" onclick="go('students')">جدول الحلقات والتلاميذ</button><button class="btn o" onclick="go('rep')">التقارير</button><div id="gs"><button class="btn o" onclick="os()">إعدادات المدرسة</button></div><button class="btn o" style="border-color:var(--bd);color:var(--mut)" onclick="lo()">تسجيل الخروج</button>
 </div></div>
 
+
+<div class="sc" id="admin">
+  <div class="adm-top">
+    <button class="adm-back" onclick="back()" aria-label="رجوع">›</button>
+    <div><span class="adm-kicker">لوحة الإشراف</span><h1>إدارة الدارة</h1><p>إدارة المؤسسة ومتابعة العمل اليومي</p></div>
+    <span class="adm-mark">۞</span>
+  </div>
+  <div class="adm-body">
+    <section class="adm-overview">
+      <div class="adm-school-row"><div><span class="adm-eyebrow">المؤسسة الحالية</span><h2 id="adm-school-name">مدرسة النور القرآنية</h2><p>لوحة التحكم والإشراف</p></div><span class="adm-status">نشطة</span></div>
+      <div class="adm-stats"><div><b id="adm-students">—</b><span>طالب</span></div><div><b id="adm-teachers">—</b><span>معلمون</span></div><div><b id="adm-circles">—</b><span>حلقات</span></div></div>
+    </section>
+    <section class="adm-group"><div class="adm-section-head"><span>01</span><div><h2>إدارة الأشخاص</h2><p>ملفات الطلاب وفريق التعليم</p></div></div>
+      <div class="adm-grid">
+        <button class="adm-tile adm-lilac" onclick="go('students')"><span class="adm-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M20 8v6m3-3h-6"/></svg></span><b>الطلاب</b><small>إضافة ومتابعة الملفات</small></button>
+        <button class="adm-tile adm-sand" onclick="go('teachers')"><span class="adm-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a7 7 0 0 1 14 0v2m3-13v6m-3-3h6"/></svg></span><b>المعلمون</b><small>الفريق والدعوات</small></button>
+      </div>
+    </section>
+    <section class="adm-group"><div class="adm-section-head"><span>02</span><div><h2>تنظيم الدراسة</h2><p>تنسيق الحلقات والتسجيل والمتابعة</p></div></div>
+      <div class="adm-grid">
+        <button class="adm-tile adm-peach" onclick="go('students')"><span class="adm-icon"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 9h18M8 5v14"/></svg></span><b>الحلقات</b><small>توزيع الطلاب على الحلقات</small></button>
+        <button class="adm-tile adm-rose" onclick="go('students')"><span class="adm-icon"><svg viewBox="0 0 24 24"><path d="M8 3h8l4 4v14H4V3z"/><path d="M8 12h8m-8 4h8M14 3v5h6"/></svg></span><b>التسجيل اليومي</b><small>الحضور والدروس اليومية</small></button>
+        <button class="adm-tile adm-sand" onclick="go('students')"><span class="adm-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="m9 10 2 2 4-4"/></svg></span><b>متابعة الحفظ</b><small>مستوى التقدم والمراجعة</small></button>
+      </div>
+    </section>
+    <section class="adm-group"><div class="adm-section-head"><span>03</span><div><h2>الإدارة والتقارير</h2><p>المراجعة والإعدادات والصلاحيات</p></div></div>
+      <div class="adm-grid">
+        <button class="adm-tile adm-lilac" onclick="go('rep')"><span class="adm-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h17"/><path d="m7 15 4-4 3 2 5-7"/></svg></span><b>التقارير</b><small>ملخص الأداء والنتائج</small></button>
+        <button class="adm-tile adm-peach" onclick="go('teachers')"><span class="adm-icon"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><b>الصلاحيات</b><small>أدوار المعلمين وإمكانية الوصول</small></button>
+        <button class="adm-tile adm-rose" onclick="os()"><span class="adm-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h.01M15 10h.01M9 14h.01M15 14h.01M10 21v-4h4v4"/></svg></span><b>بيانات الدارة</b><small>الاسم والجلسات والإعدادات</small></button>
+      </div>
+    </section>
+    <div class="adm-footnote"><span>✦</span> مساحة إدارية مخصصة للمشرفين ومديري الدارات</div>
+  </div>
+</div>
 <div class="sc" id="students"><div class="hd"><div><h1>التلاميذ</h1><p>جدول الحلقات والجلسات اليومية</p></div></div><div class="bd"><div style="display:flex;gap:8px"><input id="q" placeholder="ابحث باسم التلميذ" oninput="rs()"><button class="btn" style="margin:0;width:auto;padding:0 16px;white-space:nowrap" onclick="oa()">+ تلميذ</button></div><div id="sl" style="margin-top:12px"></div></div></div>
 <div class="sc" id="file">
 <div class="hd"><button class="bk" onclick="back()" aria-label="رجوع">›</button><div id="fph"></div><div><h1 id="fn"></h1><p id="ft"></p></div></div>
@@ -70,4 +105,4 @@
 
 <div class="nv"><div id="nv"></div></div><div class="tt" id="tt"></div>
 
-<script src="app.js"></script></body></html>
+<script src="app.js"></script><script src="admin.js"></script></body></html>
